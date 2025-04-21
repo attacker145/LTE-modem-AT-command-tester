@@ -208,9 +208,7 @@ Remember to consult the specific documentation for your modem for the precise me
             for key, value in ModemResponses.modem_response_dict.items():  # From modem_responses.py file, modem_response_dict dictionary
                 if key in read_val_stripped:
                     if self.verb.get() == 1:
-                        self.display_modem_response(read_val + value)  # modem_responses.py
-                    else:
-                        self.display_modem_response(read_val)
+                        self.display_modem_response(value)  # modem_responses.py
 
                     if key in {"+CEREG: 0,0", "+CREG: 0,0", "+CEREG: 0,0", "+CREG: 0,0"}:
                         self.update_note_tabs("MT is not registered and Not currently searching a new operator to register to")
