@@ -187,7 +187,7 @@ class LteInterface(DisplayImagesUserInterfaceInit):
 
         column += 1  # Checkbox: Verb
         self.verb = tk.BooleanVar()
-        self.verb_check_box = tk.Checkbutton(self.tab1, text='Verb', font=bold_font, variable=self.verb)
+        self.verb_check_box = tk.Checkbutton(self.tab1, text='Response Analysis Printout', font=bold_font, variable=self.verb)
         self.verb_check_box.grid(row=row, column=column)
 
         column += 2  # Image
