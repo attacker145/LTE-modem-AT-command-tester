@@ -70,6 +70,13 @@ Use the "SINGLE COMMAND" tab to enter any AT+ command (e.g., AT+CREG?) and view 
 ![single_command](https://github.com/user-attachments/assets/bd60947b-81f2-48dc-b67c-9f2c68af4bf9)
 
 Use the "DROP DOWN COMMAND" tab to choose from predefined AT+ commands via three drop-down menus. Select a command from any dropdown (e.g., AT+CREG?, AT+COPS?) and click Run to send it to the modem. The modem's response will be displayed immediately.
-This tab also has two entry windows to add AT+ commands with descriptions to ListA and ListB
+This tab also has two entry windows to add AT+ commands with descriptions to List A and List B
+
+
+![run_command_file](https://github.com/user-attachments/assets/38998e26-b849-4b6f-848d-8c8a4b44a313)
+
+
+
+![diagnostics](https://github.com/user-attachments/assets/39d7caf3-607f-4fc1-bd35-9d051783f5e7)
 
 ![drop_down_command](https://github.com/user-attachments/assets/b0608e93-b9ff-4bfe-9342-41d69096cd6d)
