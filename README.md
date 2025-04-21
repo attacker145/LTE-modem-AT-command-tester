@@ -1,39 +1,42 @@
-LTE AT+ Command Tester
-Overview
-The LTE AT+ Command Tester is a Python-based tool designed to send, receive, and process AT+ commands for testing and configuring LTE modems. This project simplifies interaction with LTE modems by providing a script to automate command execution, parse responses, and log results. It is ideal for developers and engineers working on modem integration or network testing.
-Features
+# LTE AT+ Command Tester
 
-Send AT+ commands to an LTE modem via a serial connection.
-Parse and display modem responses in a readable format.
-Support for common AT+ commands like AT+CREG?, AT+COPS?, and AT+CGDCONT.
-Configurable serial port settings (e.g., COM port, baud rate).
-Error handling for robust communication with the modem.
-Logging of command interactions for debugging and analysis.
+## Overview
 
-Requirements
+The **LTE AT+ Command Tester** is a Python-based tool designed to send, receive, and process AT+ commands for testing and configuring LTE modems. This project simplifies interaction with LTE modems by providing a script to automate command execution, parse responses, and log results. It is ideal for developers and engineers working on modem integration or network testing.
 
-Python 3.6 or higher
-Required Python packages:
-pyserial for serial communication
-pillow for image display
-webbrowser for web links
-struct
-binascii
-socket
-google
-pdfplumber
-subprocess
+### Features
+
+- Send AT+ commands to an LTE modem via a serial connection.
+- Parse and display modem responses in a readable format.
+- Support for common AT+ commands like `AT+CREG?`, `AT+COPS?`, and `AT+CGDCONT`.
+- Configurable serial port settings (e.g., COM port, baud rate).
+- Error handling for robust communication with the modem.
+- Logging of command interactions for debugging and analysis.
+
+## Requirements
+
+- Python 3.6 or higher  
+- Required Python packages:
+  - `pyserial` for serial communication  
+  - `pillow` for image display  
+  - `webbrowser` for web links  
+  - `struct`  
+  - `binascii`  
+  - `socket`  
+  - `google`  
+  - `pdfplumber`  
+  - `subprocess`
 
 Compatible LTE modems are Quectel, Telit, and others, connected via USB or serial interface, Windows, with appropriate serial port drivers.
 
-Installation
+## Installation
 
-Clone the repository:
+Clone the repository:<br>
 git clone https://github.com/attacker145/LTE-modem-AT-command-tester.git
 cd LTE-modem-AT-command-tester
 
 
-Set up a virtual environment (recommended not required):
+Set up a virtual environment (recommended, not required):
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 
@@ -44,7 +47,6 @@ pip install pyserial pillow struct binascii socket google pdfplumber subprocess
 Verify modem connection:
 Ensure your LTE modem is connected and drivers are installed.
 Identify the modem's serial port (e.g., COM3 on Windows or /dev/ttyUSB0 on Linux).
-
 
 
 Usage
