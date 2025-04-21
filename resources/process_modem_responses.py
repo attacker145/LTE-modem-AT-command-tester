@@ -11,11 +11,12 @@ class ModemResponses:
     A class containing modem command strings and CEREG value descriptions.
     """
 
-    def __init__(self, display_modem_response, update_note_tabs, google_search_chk, select_ai):
+    def __init__(self, display_modem_response, update_note_tabs, google_search_chk, select_ai, verb):
         self.display_modem_response = display_modem_response
         self.update_note_tabs = update_note_tabs
         self.google_search_chk = google_search_chk
         self.select_ai = select_ai
+        self.verb = verb
 
     # CEREG value descriptions
     CEREG00 = """
@@ -206,7 +207,10 @@ Remember to consult the specific documentation for your modem for the precise me
             self.display_modem_response(read_val)
             for key, value in ModemResponses.modem_response_dict.items():  # From modem_responses.py file, modem_response_dict dictionary
                 if key in read_val_stripped:
-                    self.display_modem_response(read_val + value)  # modem_responses.py
+                    if self.verb.get() == 1:
+                        self.display_modem_response(read_val + value)  # modem_responses.py
+                    else:
+                        self.display_modem_response(read_val)
 
                     if key in {"+CEREG: 0,0", "+CREG: 0,0", "+CEREG: 0,0", "+CREG: 0,0"}:
                         self.update_note_tabs("MT is not registered and Not currently searching a new operator to register to")

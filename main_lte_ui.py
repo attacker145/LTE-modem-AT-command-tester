@@ -171,7 +171,7 @@ class LteInterface(DisplayImagesUserInterfaceInit):
         scrollbar.config(command=self.ser_port_settings_tab1.xview)
 
         row += 1
-        column = 0  # Checkbox
+        column = 0  # Checkbox: Enable VertexAI prompt
         # self.select_ai = tk.IntVar()
         # create_checkbutton(self.tab4, 'Enable VertexAI prompt', self.select_ai, row, column, self.ai_check_box)
         self.select_ai = tk.BooleanVar()
@@ -179,13 +179,16 @@ class LteInterface(DisplayImagesUserInterfaceInit):
                                            variable=self.select_ai)
         self.ai_check_box.grid(row=row, column=column)
 
-        column += 1  # Checkbox
-        # self.select_ai = tk.IntVar()
-        # create_checkbutton(self.tab4, 'Enable VertexAI prompt', self.select_ai, row, column, self.ai_check_box)
+        column += 1  # Checkbox: Enable Google Search
         self.google_search = tk.BooleanVar()
         self.google_search_check_box = tk.Checkbutton(self.tab1, text='Enable Google Search', font=bold_font,
                                                       variable=self.google_search)
         self.google_search_check_box.grid(row=row, column=column)
+
+        column += 1  # Checkbox: Verb
+        self.verb = tk.BooleanVar()
+        self.verb_check_box = tk.Checkbutton(self.tab1, text='Verb', font=bold_font, variable=self.verb)
+        self.verb_check_box.grid(row=row, column=column)
 
         column += 2  # Image
         self.panel = ttk.Label(self.tab1, image=self.image_tab1)
@@ -758,28 +761,6 @@ class LteInterface(DisplayImagesUserInterfaceInit):
         self.displ_modem_response_tab5.config(xscrollcommand=scrollbar.set)
         scrollbar.config(command=self.displ_modem_response_tab5.xview)
 
-        """row += 1  # ----
-        column = 0
-        self.search_dir = tk.Text(self.tab5, height=10, width=40, bg='#33FFAA', bd=4, highlightcolor='#33FF44',
-                                  font=("Helvetica", 10), wrap="word")"""
-        # self.search_dir.insert(tk.END, r"C:\Users\Roman.Chak\Documents\Github\LTE-UI\search_pdf\CAT-M1")
-        """self.search_dir.grid(column=column, row=row, columnspan=2, rowspan=3, padx=5, pady=20, sticky="sw")
-        row += 3
-        self.query = tk.Text(self.tab5, height=1, width=40, bg='#33FFAA', bd=4, highlightcolor='#33FF44',
-                             font=("Helvetica", 10), wrap="word")
-        self.query.insert(tk.END, "COPS")
-        self.query.grid(column=column, row=row, columnspan=1, rowspan=3, padx=5, pady=5, sticky="sw")
-
-        column = 0
-        row += 5
-        tk.Button(self.tab5, text="Exit", command=self.exit_app, bd=4, width=20).grid(column=column, row=row, padx=5,
-                                                                                      pady=20, sticky="sw",
-                                                                                      columnspan=2)
-        column = 2
-        tk.Button(self.tab5, text="Search", command=self.search_directory, bd=4, width=20).grid(column=column, row=row,
-                                                                                                padx=5, pady=20,
-                                                                                                sticky="sw",
-                                                                                                columnspan=2)"""
         row += 1
         column = 0  # Quectel Forums web link
         style = ttk.Style()
@@ -896,16 +877,14 @@ class LteInterface(DisplayImagesUserInterfaceInit):
         self.file_name.configure(text=str(self.input_file))
         with open(self.input_file, 'r') as f_in:
             self.lines = [line.strip("\n") for line in f_in.readlines()]
-
+        # ************ Initialize Modem Responses ********************************************************
         self.process_modem_response_call = ModemResponses(
             display_modem_response=self.display_modem_response,
             update_note_tabs=self.update_note_tabs,
             google_search_chk=self.google_search,
-            select_ai=self.select_ai
+            select_ai=self.select_ai,
+            verb=self.verb
         )
-
-        # self.select_and_assign_com_port_from_drop_down()
-        # Methods to control the image link from another class
 
     def string_to_ppp(self):
         ppp_string = self.enter_string.get("1.0", "end-1c")
@@ -1089,7 +1068,6 @@ class LteInterface(DisplayImagesUserInterfaceInit):
                 elif self.command.strip().startswith("AT"):  # Command
                     # line = line.replace('"', '\\"')
                     self.com_port.write(self.command.encode() + rtn.encode())  # Send command + RTN
-                    # self.serial_comm.send_command(command, str(self.expected_response))
                     # Update GUI and logs
                     self.display_sent_messages.configure(text="{}, Line {}".format(self.command, self.line_number))
                     logging.debug("{}, Line #{}".format(self.command, self.line_number))
@@ -1099,7 +1077,6 @@ class LteInterface(DisplayImagesUserInterfaceInit):
                         self.apply_button.configure(state=tk.DISABLED)
                 elif self.command.strip() == "+++":
                     self.com_port.write(self.command.encode() + rtn.encode())  # Send command + RTN
-                    # self.serial_comm.send_command(command, str(self.expected_response))
                     # Update GUI and logs
                     self.display_sent_messages.configure(text="{}, Line {}".format(self.command, self.line_number))
                     logging.debug("{}, Line #{}".format(self.command, self.line_number))
@@ -1109,7 +1086,6 @@ class LteInterface(DisplayImagesUserInterfaceInit):
                         self.apply_button.configure(state=tk.DISABLED)
                 elif self.command.strip().startswith("http"):
                     self.com_port.write(self.command.encode() + rtn.encode())  # Send command + RTN
-                    # self.serial_comm.send_command(command, str(self.expected_response))
                     # Update GUI and logs
                     self.display_sent_messages.configure(text="{}, Line {}".format(self.command, self.line_number))
                     logging.debug("{}, Line #{}".format(self.command, self.line_number))
@@ -1184,14 +1160,6 @@ class LteInterface(DisplayImagesUserInterfaceInit):
         self.line_number = start_line_num
         self.apply_button.configure(state=tk.NORMAL)
 
-    """def display_modem_response(self, read_val):
-        self.displ_modem_response_tab2.delete('1.0', tk.END)  #
-        self.displ_modem_response_tab2.insert('1.0', read_val)  #
-        self.displ_modem_response_tab3.delete('1.0', tk.END)  # Display
-        self.displ_modem_response_tab3.insert('1.0', read_val)  #
-        self.displ_modem_response_tab4.delete('1.0', tk.END)  #
-        self.displ_modem_response_tab4.insert('1.0', read_val)  #"""
-
     def display_modem_response(self, read_val):
         # Ensure the message starts on a new line
         new_message = "\r\n\r\n" + read_val
@@ -1224,15 +1192,15 @@ class LteInterface(DisplayImagesUserInterfaceInit):
                             self.stop_timer()
                             self.reset_timer()
                         print("Modem Response Below:\n" + read_val)
-                        read_val = str(parse_csq_response(read_val))  # #CQS: Combined and parsed message
+                        read_val = str(parse_csq_response(read_val))  # Extracts RSSI and BER values from the +CSQ response.
                         read_val = str(parse_servinfo_response(read_val))  # #SERVINFO: Combined and parsed message
                         read_val = str(parse_at_atrfsts(read_val))  # #RFSTS Combined and parsed message
                         self.process_modem_response(read_val)  # If there is an error it will be display here
                         if self.expected_response is not None:
-                            if str(self.expected_response) in read_val:
+                            if str(self.expected_response) in read_val:  # Received the expected response
                                 self.stop_timer()
                                 self.reset_timer()
-                                self.process_modem_response("MT Done!")
+                                self.process_modem_response("Done!")
                             else:
                                 self.update_timer()
                     else:
