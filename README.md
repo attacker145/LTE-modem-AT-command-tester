@@ -62,10 +62,6 @@ Once the script connects to the serial port, the port settings will be displayed
 
 Interact with the modem:
 
-The script will prompt for AT+ commands or execute predefined commands.
-Example interaction:Enter an AT+ Command (Press Enter to skip): AT+CREG?
-Response: +CREG: 0,1
-
 Use the "SINGLE COMMAND" tab to enter any AT+ command (e.g., AT+CREG?) and view the modem's response directly.
 
 ![single_command](https://github.com/user-attachments/assets/bd60947b-81f2-48dc-b67c-9f2c68af4bf9)
