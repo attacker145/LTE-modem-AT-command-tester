@@ -66,17 +66,7 @@ Use the "SINGLE COMMAND" tab to enter any AT+ command (e.g., AT+CREG?) and view 
 
 ![single_command](https://github.com/user-attachments/assets/bd60947b-81f2-48dc-b67c-9f2c68af4bf9)
 
-View logs:
-
-Command responses are logged to the console and optionally to a file (if implemented).
-
-
-Example Commands
-Here are some common AT+ commands you can test with this tool:
-
-AT: Check modem responsiveness.
-AT+CREG?: Query network registration status.
-AT+COPS?: Check current operator
-
+Use the "DROP DOWN COMMAND" tab to choose from predefined AT+ commands via three drop-down menus. Select a command from any dropdown (e.g., AT+CREG?, AT+COPS?) and click Run to send it to the modem. The modem's response will be displayed immediately.
+This tab also has two entry windows to add AT+ commands with descriptions to ListA and ListB
 
 ![drop_down_command](https://github.com/user-attachments/assets/b0608e93-b9ff-4bfe-9342-41d69096cd6d)
