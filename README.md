@@ -31,7 +31,7 @@ Windows, with appropriate serial port drivers.
 Installation
 
 Clone the repository:
-git clone https://github.com/<your-username>/LTE-modem-AT-command-tester.git
+git clone https://github.com/attacker145/LTE-modem-AT-command-tester.git
 cd LTE-modem-AT-command-tester
 
 
@@ -44,7 +44,6 @@ Install dependencies:
 pip install pyserial pillow struct binascii socket google pdfplumber subprocess
 
 Verify modem connection:
-
 Ensure your LTE modem is connected and drivers are installed.
 Identify the modem's serial port (e.g., COM3 on Windows or /dev/ttyUSB0 on Linux).
 
@@ -52,17 +51,16 @@ Identify the modem's serial port (e.g., COM3 on Windows or /dev/ttyUSB0 on Linux
 
 Usage
 
-Configure the script:
-
-Open main.py (or your main script) and update the serial port and baud rate settings:SERIAL_PORT = "COM3"  # Replace with your modem's port
-BAUD_RATE = 115200    # Common baud rate for LTE modems
-
-
-
-
 Run the script:
-python main.py
+python main_lte_ui.py
 
+Select "COM PORT SELECT" for the serial interface.
+
+![com_port_select](https://github.com/user-attachments/assets/9f79844a-ed0b-41ed-9671-e695395c093b)
+
+Once the script connects to the serial port, the port settings will be displayed:
+
+![com_port_select_port_number](https://github.com/user-attachments/assets/adda67f3-ec51-4126-b81a-5db020044e4c)
 
 Interact with the modem:
 
@@ -76,7 +74,6 @@ Response: +CREG: 0,1
 View logs:
 
 Command responses are logged to the console and optionally to a file (if implemented).
-
 
 
 Example Commands
