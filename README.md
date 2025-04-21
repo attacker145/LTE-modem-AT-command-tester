@@ -24,7 +24,7 @@ google
 pdfplumber
 subprocess
 
-A compatible LTE modems are Quectel, Telit, and others, connected via USB or serial interface Windows, with appropriate serial port drivers.
+Compatible LTE modems are Quectel, Telit, and others, connected via USB or serial interface, Windows, with appropriate serial port drivers.
 
 Installation
 
@@ -54,7 +54,8 @@ python main_lte_ui.py
 
 Select "COM PORT SELECT" for the serial interface.
 
-![com_port_select](https://github.com/user-attachments/assets/9f79844a-ed0b-41ed-9671-e695395c093b)
+
+![com_port_select](https://github.com/user-attachments/assets/c4a966d9-db14-4e90-a7fc-3090e25eec55)
 
 Once the script connects to the serial port, the port settings will be displayed:
 
