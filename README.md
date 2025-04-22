@@ -85,7 +85,7 @@ AT+QICSGP=1,1,"soracom.io","","',1;OK
 AT+QIACT=1;OK
 AT+QIACT?;OK
 AT+QHTTPURL=43,80;CONNECT
-https://www.jinetinnovations.com/api/submit;OK
+https://www.jinetinnovations.com/url/post;OK
 AT+QHTTPPOST=37,80,80;CONNECT
 ```
 ![run_command_file](https://github.com/user-attachments/assets/38998e26-b849-4b6f-848d-8c8a4b44a313)
