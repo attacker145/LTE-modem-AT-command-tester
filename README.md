@@ -31,18 +31,20 @@ Compatible LTE modems are Quectel, Telit, and others, connected via USB or seria
 
 ## Installation
 
-Clone the repository:<br>
-git clone https://github.com/attacker145/LTE-modem-AT-command-tester.git
-cd LTE-modem-AT-command-tester
-
+### Clone and Navigate to LTE Modem AT Command Tester
+```bash
+  git clone https://github.com/attacker145/LTE-modem-AT-command-tester.git
+  cd LTE-modem-AT-command-tester
 
 Set up a virtual environment (recommended, not required):
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
-
+```
 
 Install dependencies:
+```bash
 pip install pyserial pillow struct binascii socket google pdfplumber subprocess
+```
 
 Verify modem connection:
 Ensure your LTE modem is connected and drivers are installed.
