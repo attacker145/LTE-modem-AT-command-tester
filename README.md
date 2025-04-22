@@ -33,8 +33,8 @@ Compatible LTE modems are Quectel, Telit, and others, connected via USB or seria
 
 ### Clone and Navigate to LTE Modem AT Command Tester
 ```bash
-  git clone https://github.com/attacker145/LTE-modem-AT-command-tester.git
-  cd LTE-modem-AT-command-tester
+git clone https://github.com/attacker145/LTE-modem-AT-command-tester.git
+cd LTE-modem-AT-command-tester
 
 Set up a virtual environment (recommended, not required):
 python -m venv venv
