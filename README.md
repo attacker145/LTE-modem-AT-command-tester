@@ -76,7 +76,18 @@ This tab also has two entry windows to add AT+ commands with descriptions to Lis
 
 ![drop_down_command](https://github.com/user-attachments/assets/b0608e93-b9ff-4bfe-9342-41d69096cd6d)
 
-
+### Run sequence of AT+ commands from a text file 
+Syntax: ***command;expected response***
+```bash
+AT+QHTTPCFG="contextid",1;OK
+AT+QIACT?;OK
+AT+QICSGP=1,1,"soracom.io","","',1;OK
+AT+QIACT=1;OK
+AT+QIACT?;OK
+AT+QHTTPURL=43,80;CONNECT
+https://www.jinetinnovations.com/api/submit;OK
+AT+QHTTPPOST=37,80,80;CONNECT
+```
 ![run_command_file](https://github.com/user-attachments/assets/38998e26-b849-4b6f-848d-8c8a4b44a313)
 
 
