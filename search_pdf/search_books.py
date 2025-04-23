@@ -53,7 +53,7 @@ def open_pdf(pdf_path):
 
 if __name__ == '__main__':
     # Example usage
-    books_dir = r"C:\Users\Roman.Chak\Documents\Github\LTE-UI\search_pdf\CAT-M1"
+    books_dir = r"C:\Users\Name\Documents\Github\LTE-UI\search_pdf\CAT-M1"
     query = "COPS"  # Search term
 
     result = find_and_open_first_match(books_dir, query)
