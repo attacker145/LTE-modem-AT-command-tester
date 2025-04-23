@@ -89,8 +89,8 @@ https://www.jinetinnovations.com/url/post;OK
 AT+QHTTPPOST=37,80,80;CONNECT
 ```
 
-![run_command_file](https://github.com/user-attachments/assets/150f34bf-cb08-4dc0-acc5-f9ba90794bff)
 
+![run_command_file](https://github.com/user-attachments/assets/d2685ea1-0c3f-4691-ab85-93d9c29956b5)
 
 ### LTE Modem Diagnostics page
 This page contains buttons programmed with AT+ commands for LTE modem diagnostics.
