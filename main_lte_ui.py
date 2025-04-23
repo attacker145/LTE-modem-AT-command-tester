@@ -711,6 +711,9 @@ class LteInterface(DisplayImagesUserInterfaceInit):
         column = 0
         tk.Button(self.tab5, text="Read IMSI", command=self.serial_comm.imsi, bd=4,
                   width=20).grid(column=column, row=row, padx=5, pady=0, sticky="nw")
+        column += 1  # BTN: AT+CGACT?
+        tk.Button(self.tab5, text="SIM state", command=self.serial_comm.cpin, bd=4,
+                  width=20).grid(column=column, row=row, padx=5, pady=0, sticky="nw")
 
         row += 1
         column = 0
