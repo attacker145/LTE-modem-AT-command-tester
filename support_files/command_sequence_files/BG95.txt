@@ -1,0 +1,29 @@
+#AT+COPS=4,2,"310410",8;OK
+AT+CMEE=2;OK
+AT+QCCID;OK
+AT+CFUN=0;OK
+AT+QCFG="gpio",1,26,1,0,0,1;OK
+AT+QCFG="gpio",3,26,0,1;OK
+AT+QCFG="iotopmode",0;OK
+AT+QCFG="nwscanmode",0;OK
+# AT+QCFG="nwscanseq","020301";OK
+AT+CFUN=1;OK
+AT+CGDCONT?;OK
+AT+CGDCONT=1,"IPV4V6","apn.name";OK
+AT+CEREG?;OK
+AT+QIACT=1;OK
+AT+QNWINFO;OK
+AT+QIDNSCFG=1,"8.8.8.8","8.8.4.4";OK
+AT+QPING=1,"8.8.8.8",5,5;OK
+AT+QIACT?;OK
+ATI;OK
+AT+QIOPEN=1,0,"TCP","www.xxxx.com",80,0,0;OK
+AT+QISEND=0;CONNECT
+POST /data/1234 HTTP/1.1
+Host: www.xxxx.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 39
+
+rsvp=Hello, post request
+AT+QIRD=0,1000;OK
+AT+QICLOSE=0;OK
