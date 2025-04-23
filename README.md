@@ -88,13 +88,16 @@ AT+QHTTPURL=43,80;CONNECT
 https://www.jinetinnovations.com/url/post;OK
 AT+QHTTPPOST=37,80,80;CONNECT
 ```
-![run_command_file](https://github.com/user-attachments/assets/38998e26-b849-4b6f-848d-8c8a4b44a313)
+
+
+![run_command_file](https://github.com/user-attachments/assets/dd07a33a-34c4-4a70-a222-a7c70ccef0f8)
 
 
 ### LTE Modem Diagnostics page
 This page contains buttons programmed with AT+ commands for LTE modem diagnostics.
 
-![diagnostics](https://github.com/user-attachments/assets/4341f139-9e6b-4eed-a027-495eeeea8c7b)
+
+![diagnostics](https://github.com/user-attachments/assets/d3cd361d-dd8a-4ef0-a8d3-0cded7adc36e)
 
 
 ### PPP Frame Constructor Page
