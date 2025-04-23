@@ -88,7 +88,8 @@ AT+QHTTPURL=43,80;CONNECT
 https://www.jinetinnovations.com/url/post;OK
 AT+QHTTPPOST=37,80,80;CONNECT
 ```
-![run_command_file](https://github.com/user-attachments/assets/38998e26-b849-4b6f-848d-8c8a4b44a313)
+
+![run_command_file](https://github.com/user-attachments/assets/150f34bf-cb08-4dc0-acc5-f9ba90794bff)
 
 
 ### LTE Modem Diagnostics page
