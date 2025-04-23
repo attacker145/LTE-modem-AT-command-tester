@@ -165,6 +165,9 @@ class SerialCommunication:
     def imsi(self):
         self.com_port.write(b"AT+CIMI" + rtn.encode())
 
+    def cpin(self):
+        self.com_port.write(b"AT+CPIN?" + rtn.encode())
+
     def send_command(self, command, response="OK"):
         timeout = 40
         self.com_port.write(command.encode() + rtn.encode())
