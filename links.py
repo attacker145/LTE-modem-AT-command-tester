@@ -15,7 +15,7 @@ def quectel_forums(event):
 
 
 def qbg95(event):
-    webbrowser.open_new("C:/Users/Roman.Chak/Documents/Projects/UVDI-360/Docs/Datasheets/Cell Modems/NimbeLink/QBG95")
+    webbrowser.open_new("https://www.quectel.com/product/lte-bg95-m3/")
 
 
 def tc1wwg(event):
