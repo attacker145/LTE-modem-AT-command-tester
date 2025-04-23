@@ -804,7 +804,7 @@ class LteInterface(DisplayImagesUserInterfaceInit):
         row += 1  # Field: Search directory
         column = 0
         self.search_dir = tk.Text(self.tab5, height=1, width=10, bg='#33FFAA', bd=4, highlightcolor='#33FF44', font=("Helvetica", 10))
-        self.search_dir.insert(tk.END, r"C:\Users\Roman.Chak\Documents\Github\LTE-UI\search_pdf\CAT-M1")
+        self.search_dir.insert(tk.END, r"C:\Users\XXX.XXX\Documents\Github\LTE-UI\search_pdf\CAT-M1")
         self.search_dir.grid(column=column, row=row, columnspan=1, padx=5, pady=0, sticky="ew")
         column += 1
         self.keyword = tk.Text(self.tab5, height=1, width=10, bg='#33FFAA', bd=4, highlightcolor='#33FF44', font=("Helvetica", 10))
