@@ -77,7 +77,7 @@ This tab also has two entry windows to add AT+ commands with descriptions to Lis
 ![drop_down_command](https://github.com/user-attachments/assets/b0608e93-b9ff-4bfe-9342-41d69096cd6d)
 
 ### Run sequence of AT+ commands from a text file 
-Syntax: ***command;expected response***
+Syntax: ***command;expected modem response***
 ```bash
 AT+QHTTPCFG="contextid",1;OK
 AT+QIACT?;OK
@@ -91,10 +91,12 @@ AT+QHTTPPOST=37,80,80;CONNECT
 ![run_command_file](https://github.com/user-attachments/assets/38998e26-b849-4b6f-848d-8c8a4b44a313)
 
 
-
+### LTE Modem Diagnostics page
+This page contains buttons programmed with AT+ commands for LTE modem diagnostics.
 
 ![diagnostics](https://github.com/user-attachments/assets/4341f139-9e6b-4eed-a027-495eeeea8c7b)
 
 
+### PPP Frame Constructor Page
 
 ![ppp_frame](https://github.com/user-attachments/assets/65004dad-9949-4994-9277-1048bbf5525a)
