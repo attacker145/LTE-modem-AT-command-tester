@@ -94,7 +94,8 @@ AT+QHTTPPOST=37,80,80;CONNECT
 ### LTE Modem Diagnostics page
 This page contains buttons programmed with AT+ commands for LTE modem diagnostics.
 
-![diagnostics](https://github.com/user-attachments/assets/4341f139-9e6b-4eed-a027-495eeeea8c7b)
+
+![diagnostics](https://github.com/user-attachments/assets/d3cd361d-dd8a-4ef0-a8d3-0cded7adc36e)
 
 
 ### PPP Frame Constructor Page
