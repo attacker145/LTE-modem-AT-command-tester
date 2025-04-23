@@ -43,7 +43,7 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 Install dependencies:
 ```bash
-pip install pyserial pillow struct binascii socket google pdfplumber subprocess pillow webbrowser
+pip install pyserial pillow binascii socket google pdfplumber subprocess pillow webbrowser
 ```
 
 Verify modem connection:
