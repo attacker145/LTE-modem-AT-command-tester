@@ -92,5 +92,9 @@ AT+QHTTPPOST=37,80,80;CONNECT
 
 
 
-![diagnostics](https://github.com/user-attachments/assets/39d7caf3-607f-4fc1-bd35-9d051783f5e7)
 
+![diagnostics](https://github.com/user-attachments/assets/4341f139-9e6b-4eed-a027-495eeeea8c7b)
+
+
+
+![ppp_frame](https://github.com/user-attachments/assets/65004dad-9949-4994-9277-1048bbf5525a)
