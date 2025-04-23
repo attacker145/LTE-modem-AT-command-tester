@@ -90,7 +90,8 @@ AT+QHTTPPOST=37,80,80;CONNECT
 ```
 
 
-![run_command_file](https://github.com/user-attachments/assets/d2685ea1-0c3f-4691-ab85-93d9c29956b5)
+![run_command_file](https://github.com/user-attachments/assets/dd07a33a-34c4-4a70-a222-a7c70ccef0f8)
+
 
 ### LTE Modem Diagnostics page
 This page contains buttons programmed with AT+ commands for LTE modem diagnostics.
