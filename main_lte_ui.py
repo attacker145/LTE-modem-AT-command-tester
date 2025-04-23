@@ -966,7 +966,8 @@ class LteInterface(DisplayImagesUserInterfaceInit):
         print(self.log_file_path)
         self.log_file_path = str(self.log_file_path)
         # self.log_file_path = logs/rsvp.txt
-        process_files(self.log_file_path, "support_files/LTE_seq_files/CAT1.txt", "support_files/LTE_seq_files/CAT1_appended.txt")
+        process_files(self.log_file_path, "support_files/command_sequence_files/CAT1.txt",
+                      "support_files/command_sequence_files/CAT1_appended.txt")
 
     def get_file_size(self):
         """
@@ -1384,7 +1385,7 @@ if __name__ == '__main__':
         )
     except Exception as e:
         print("Error configuring logging: {}".format(e))
-    input_file = "support_files/LTE_seq_files/BG95.txt"
+    input_file = "support_files/command_sequence_files/BG95.txt"
     root = tk.Tk()
     root.title("LTE Modem Communication Serial Interface")
     root.geometry("1210x650")
