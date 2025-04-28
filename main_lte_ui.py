@@ -1443,7 +1443,7 @@ if __name__ == '__main__':
         )
     except Exception as e:
         print("Error configuring logging: {}".format(e))
-    input_file = "support_files/comman_sequence_files/BG95.txt"
+    input_file = "support_files/command_sequence_files/BG95.txt"
     root = tk.Tk()
     root.title("LTE Modem Communication Serial Interface")
     root.geometry("1210x650")
