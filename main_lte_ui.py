@@ -804,7 +804,7 @@ class LteInterface(DisplayImagesUserInterfaceInit):
         row += 1  # Field: Search directory
         column = 0
         self.search_dir = tk.Text(self.tab5, height=1, width=10, bg='#33FFAA', bd=4, highlightcolor='#33FF44', font=("Helvetica", 10))
-        self.search_dir.insert(tk.END, r"C:\Users\XXX.XXX\Documents\Github\LTE-UI\search_pdf\CAT-M1")
+        self.search_dir.insert(tk.END, r"C:\Users\Roman.Chak\Documents\Github\LTE-UI\search_pdf\CAT-M1")
         self.search_dir.grid(column=column, row=row, columnspan=1, padx=5, pady=0, sticky="ew")
         column += 1
         self.keyword = tk.Text(self.tab5, height=1, width=10, bg='#33FFAA', bd=4, highlightcolor='#33FF44', font=("Helvetica", 10))
@@ -836,14 +836,67 @@ class LteInterface(DisplayImagesUserInterfaceInit):
             ttk.Label(self.tab5, text=command).grid(row=i + 6, column=2, padx=0, pady=0, sticky=tk.W)
 
         # ********************** Tab6 PPP ****************************************************************
-        row = 0  # ---- Blank line1
-        tk.Label(self.tab6, text="").grid(column=0, row=row, padx=5, pady=0, sticky="sw")
+
+        row = 0  # --- Label for Command Text Field
+        column = 0
+        tk.Label(self.tab6, text="Command", font=("Helvetica", 10, "bold")).grid(column=column, row=row, columnspan=2,
+                                                                                 sticky="w", padx=5)
 
         row += 1  # --- Enter Command Text Field
-        column = 0
-        self.enter_string = tk.Text(self.tab6, height=2, width=40, bg='#33FFAA', bd=4, highlightcolor='#33FF44', font=("Helvetica", 10))
+        self.enter_string = tk.Text(self.tab6, height=2, width=40, bg='#33FFAA', bd=4, highlightcolor='#33FF44',
+                                    font=("Helvetica", 10))
         self.enter_string.insert(tk.END, "Hello, PPP!")
         self.enter_string.grid(column=column, row=row, columnspan=2, padx=5, pady=0, sticky="nw")
+
+        row += 1  # --- Label for Source Port Text Field
+        tk.Label(self.tab6, text="Source Port", font=("Helvetica", 10, "bold")).grid(column=column, row=row,
+                                                                                     columnspan=2, sticky="w", padx=5)
+
+        row += 1  # --- Enter Source Port Text Field
+        self.enter_src_port = tk.Text(self.tab6, height=2, width=40, bg='#33FFAA', bd=4, highlightcolor='#33FF44',
+                                      font=("Helvetica", 10))
+        self.enter_src_port.insert(tk.END, "1234")
+        self.enter_src_port.grid(column=column, row=row, columnspan=2, padx=5, pady=0, sticky="nw")
+
+        row += 1  # --- Label for Destination Port Text Field
+        tk.Label(self.tab6, text="Destination Port", font=("Helvetica", 10, "bold")).grid(column=column, row=row,
+                                                                                          columnspan=2, sticky="w",
+                                                                                          padx=5)
+
+        row += 1  # --- Enter Destination Port Text Field
+        self.enter_dest_port = tk.Text(self.tab6, height=2, width=40, bg='#33FFAA', bd=4, highlightcolor='#33FF44',
+                                       font=("Helvetica", 10))
+        self.enter_dest_port.insert(tk.END, "80")
+        self.enter_dest_port.grid(column=column, row=row, columnspan=2, padx=5, pady=0, sticky="nw")
+
+        row += 1  # --- Label for Source IP Text Field
+        tk.Label(self.tab6, text="Source IP", font=("Helvetica", 10, "bold")).grid(column=column, row=row, columnspan=2,
+                                                                                   sticky="w", padx=5)
+
+        row += 1  # --- Enter Source IP Text Field
+        self.enter_src_ip = tk.Text(self.tab6, height=2, width=40, bg='#33FFAA', bd=4, highlightcolor='#33FF44',
+                                    font=("Helvetica", 10))
+        self.enter_src_ip.insert(tk.END, "192.168.1.100")
+        self.enter_src_ip.grid(column=column, row=row, columnspan=2, padx=5, pady=0, sticky="nw")
+
+        row += 1  # --- Label for Destination IP Text Field
+        tk.Label(self.tab6, text="Destination IP", font=("Helvetica", 10, "bold")).grid(column=column, row=row, columnspan=2, sticky="w", padx=5)
+
+        row += 1  # --- Enter Destination IP Text Field
+        self.enter_dest_ip = tk.Text(self.tab6, height=2, width=40, bg='#33FFAA', bd=4, highlightcolor='#33FF44', font=("Helvetica", 10))
+        self.enter_dest_ip.insert(tk.END, "192.168.1.1")
+        self.enter_dest_ip.grid(column=column, row=row, columnspan=2, padx=5, pady=0, sticky="nw")
+
+        row += 1  # --- Label for Address Text Field
+        tk.Label(self.tab6, text="Address", font=("Helvetica", 10, "bold")).grid(column=column, row=row,
+                                                                                        columnspan=2, sticky="w",
+                                                                                        padx=5)
+
+        row += 1  # --- Enter Address Text Field
+        self.enter_address = tk.Text(self.tab6, height=2, width=40, bg='#33FFAA', bd=4, highlightcolor='#33FF44',
+                                     font=("Helvetica", 10))
+        self.enter_address.insert(tk.END, "b'\\xFF'")
+        self.enter_address.grid(column=column, row=row, columnspan=2, padx=5, pady=0, sticky="nw")
 
         row += 1
         column = 0  # BTN: AT+CSQ
@@ -891,7 +944,12 @@ class LteInterface(DisplayImagesUserInterfaceInit):
 
     def string_to_ppp(self):
         ppp_string = self.enter_string.get("1.0", "end-1c")
-        frame = create_ppp_frame(ppp_string)
+        src_port = self.enter_src_port.get("1.0", "end-1c")
+        dest_port = self.enter_dest_port.get("1.0", "end-1c")
+        src_ip = self.enter_src_ip.get("1.0", "end-1c")
+        dest_ip = self.enter_dest_ip.get("1.0", "end-1c")
+        address = self.enter_address.get("1.0", "end-1c")
+        frame = create_ppp_frame(ppp_string, src_ip, dest_ip, int(src_port), int(dest_port))
         print("Generated PPP Frame:", frame)
         self.displ_modem_response_tab6.insert(tk.END, binascii.hexlify(frame).decode('utf-8') + "\n")
         self.displ_modem_response_tab6.see(tk.END)
@@ -966,8 +1024,8 @@ class LteInterface(DisplayImagesUserInterfaceInit):
         print(self.log_file_path)
         self.log_file_path = str(self.log_file_path)
         # self.log_file_path = logs/rsvp.txt
-        process_files(self.log_file_path, "support_files/command_sequence_files/CAT1.txt",
-                      "support_files/command_sequence_files/CAT1_appended.txt")
+        process_files(self.log_file_path, "support_files/comman_sequence_files/CAT1.txt",
+                      "support_files/comman_sequence_files/CAT1_appended.txt")
 
     def get_file_size(self):
         """
@@ -1385,7 +1443,7 @@ if __name__ == '__main__':
         )
     except Exception as e:
         print("Error configuring logging: {}".format(e))
-    input_file = "support_files/command_sequence_files/BG95.txt"
+    input_file = "support_files/comman_sequence_files/BG95.txt"
     root = tk.Tk()
     root.title("LTE Modem Communication Serial Interface")
     root.geometry("1210x650")
