@@ -13,7 +13,7 @@ def checksum(data: bytes) -> int:
     return ~s & 0xFFFF
 
 
-def create_ppp_frame(message: str) -> bytes:
+def create_ppp_frame(message: str, src_ip="192.168.1.100", dst_ip="192.168.1.1", src_port=1234, dst_port=80, address_str='\xFF') -> bytes:
     """
     Basic PPP Frame Format:
 
@@ -29,10 +29,10 @@ def create_ppp_frame(message: str) -> bytes:
     |0x7E|FF|03|00 21|<Payload>|CRC|0x7E|
     """
     FLAG = b'\x7E'
-
-    ADDRESS = b'\xFF'
-    CONTROL = b'\x03'
-    PROTOCOL = b'\x21'
+    CONTROL = b'\x03'  # Control (e.g., 0x03 for unnumbered frames).
+    PROTOCOL = b'\x21'  # Protocol (e.g., 0x0021 for IP or 0xC021 for LCP).
+    ADDRESS = address_str.encode('utf-8')  # Encodes to b'\xFF'
+    print(ADDRESS)
     ppp_header = ADDRESS + CONTROL + PROTOCOL
 
     # TCP Parameters
@@ -49,8 +49,7 @@ def create_ppp_frame(message: str) -> bytes:
     checksum            unsigned short  2           Checksum (initially 0 for calculation)
     urg_ptr             unsigned short  2           Urgent pointer (usually 0)
     """
-    src_port = 1234
-    dst_port = 80
+
     seq_num = 1000
     ack_num = 2000
     data_offset = (5 << 4)  # 5 words (20 bytes) shifted left by 4
@@ -58,13 +57,13 @@ def create_ppp_frame(message: str) -> bytes:
     window = 1024
     urg_ptr = 0
 
-    # Dummy IPs for pseudo-header
-    src_ip = socket.inet_aton('192.168.1.100')
-    dst_ip = socket.inet_aton('192.168.1.1')
+    # IPs for header
+    src_ip = socket.inet_aton(src_ip)
+    dst_ip = socket.inet_aton(dst_ip)
 
     message_bytes = message.encode('utf-8')
 
-    # Pseudo Header for Checksum
+    # Header for Checksum
     pseudo_header = src_ip + dst_ip + struct.pack('!BBH', 0, socket.IPPROTO_TCP, 20 + len(message_bytes))
 
     # TCP header with zero checksum for now
@@ -101,8 +100,17 @@ def create_ppp_frame(message: str) -> bytes:
                              urg_ptr)
 
     payload = tcp_header + message_bytes
-
+    """
+    In PPP, the CRC (specifically, FCS or Frame Check Sequence) is calculated over the entire frame, including the 
+    header and payload, but excluding the starting/ending flags (0x7E) and the FCS field itself.
+    
+    The crc_input represents the portion of the PPP frame over which the CRC is computed.
+    """
     crc_input = ppp_header + payload
+    """
+    This line computes the CRC value for crc_input using the crc_hqx function from the binascii module, with an initial 
+    CRC value of 0xFFFF.
+    """
     crc_value = binascii.crc_hqx(crc_input, 0xFFFF)
     crc = struct.pack('<H', crc_value)
 
