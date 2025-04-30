@@ -1,3 +1,10 @@
-2025-04-30 10:34:11,349 - DEBUG - Rspnse: b'Quectel'
-2025-04-30 10:34:11,353 - DEBUG - Rspnse: b''
-2025-04-30 10:34:11,354 - DEBUG - Rspnse: b'OK'
+2025-04-30 13:41:45,600 - DEBUG - Rspnse: b'Quectel'
+2025-04-30 13:41:45,610 - DEBUG - Rspnse: b''
+2025-04-30 13:41:45,610 - DEBUG - Rspnse: b'OK'
+2025-04-30 13:42:05,836 - INFO - AT+CSQ
++CSQ: 25,99
+OK
+RSSI: 25 dBm, BER(number of erroneous bits): 99 bit error
+2025-04-30 13:42:09,882 - INFO - AT+ICCID 
++ICCID: 8942310023000001653F
+OK
