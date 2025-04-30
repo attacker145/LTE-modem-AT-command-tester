@@ -101,4 +101,4 @@ This page contains buttons programmed with AT+ commands for LTE modem diagnostic
 
 ### PPP Frame Constructor Page
 
-![ppp_frame](https://github.com/user-attachments/assets/65004dad-9949-4994-9277-1048bbf5525a)
+![ppp_frame](https://github.com/user-attachments/assets/9f68ff72-e26c-4235-bc6c-e3e2e9ecd025)
