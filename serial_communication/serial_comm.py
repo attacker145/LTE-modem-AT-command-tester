@@ -170,10 +170,11 @@ class SerialCommunication:
 
     def send_command(self, command, response="OK"):
         timeout = 40
+        text = ""
         self.com_port.write(command.encode() + rtn.encode())
         start_time = datetime.datetime.now()
         elapsed_time = (datetime.datetime.now() - start_time).total_seconds()
-        line = str(self.com_port.readline().strip())
+        line = str(self.com_port.readline().strip())  # Read one line from the modem
         while response not in line:
             line = str(self.com_port.readline().strip())
             if line and line not in ("\r", "\n"):
@@ -181,15 +182,16 @@ class SerialCommunication:
                 logging.debug("Rspnse: {}".format(line))
                 self.displ_modem_response_tab4.insert(tk.END, line)
                 self.displ_modem_response_tab4.see(tk.END)
+                text += line
             else:
                 print("Waiting for modem response {} sec...".format(elapsed_time))
                 logging.debug("Waiting for modem response {} sec...".format(elapsed_time))
                 self.displ_modem_response_tab4.insert(tk.END, "Waiting for modem response {} sec...".format(elapsed_time))
                 self.displ_modem_response_tab4.see(tk.END)
-            time_delay(1)
+            # time_delay(1)
             if elapsed_time > timeout:
                 return
-        return line
+        return text
 
 
 if __name__ == '__main__':

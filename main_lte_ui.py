@@ -19,6 +19,7 @@ from file_operations import FileEditorApp, count_bytes_in_file, process_files
 from links import quectel_forums, qbg95, tc1wwg, lte_books
 from resources.process_modem_responses import ModemResponses
 from search_pdf.search_books import find_and_open_first_match
+from serial_communication import serial_comm
 from tool_tip import Tooltip
 from update_json import update_json
 from utils import parse_csq_response, parse_servinfo_response, parse_at_atrfsts, Timer
@@ -85,6 +86,8 @@ class LteInterface(DisplayImagesUserInterfaceInit):
         self.expected_response = []
         self.get_com_ports()
         self.timer = Timer()
+
+        self.smi_flag = False  # AT+GMI single shot flag
         # ---------------------- Create Tabs -----------------------------------------------------------------
         tab_count = 6  # The number of tabs
         tabs = [ttk.Frame(self.tab_control) for _ in range(tab_count)]
@@ -942,6 +945,18 @@ class LteInterface(DisplayImagesUserInterfaceInit):
             verb=self.verb
         )
 
+    def manufacture(self):
+        if not self.smi_flag:
+            response = self.serial_comm.send_command("AT+GMI", "OK")
+            print(response)
+            parts = response.split("b'")
+            print(parts)
+            vendors = ["Quectel", "Telit", "Sierra", "u-blox"]
+            manufacture = next((s.rstrip("'") for s in parts if any(s.startswith(v) for v in vendors)), None)
+            print(manufacture)
+            self.display_modem_response("Connected to " + manufacture + " Modem")
+            self.smi_flag = True
+
     def string_to_ppp(self):
         ppp_string = self.enter_string.get("1.0", "end-1c")
         src_port = self.enter_src_port.get("1.0", "end-1c")
@@ -1024,8 +1039,8 @@ class LteInterface(DisplayImagesUserInterfaceInit):
         print(self.log_file_path)
         self.log_file_path = str(self.log_file_path)
         # self.log_file_path = logs/rsvp.txt
-        process_files(self.log_file_path, "support_files/comman_sequence_files/CAT1.txt",
-                      "support_files/comman_sequence_files/CAT1_appended.txt")
+        process_files(self.log_file_path, "support_files/command_sequence_files/CAT1.txt",
+                      "support_files/command_sequence_files/CAT1_appended.txt")
 
     def get_file_size(self):
         """
@@ -1247,6 +1262,7 @@ class LteInterface(DisplayImagesUserInterfaceInit):
             self.update_clock()
             if self.com_port:
                 if self.com_port.is_open:
+                    self.manufacture()
                     read_val = self.com_port.read(1024)  # Read 1024 byte response
                     read_val = '\n'.join(line for line in read_val.decode('utf-8').splitlines() if line.strip())
                     if read_val:
@@ -1452,6 +1468,5 @@ if __name__ == '__main__':
     lte_commands = LteInterface(root, input_file)
     opened_port = lte_commands.com_port
     time.sleep(0.1)
-    # lte_commands.start_reading_thread()
     start_reading_thread_1(opened_port, lte_commands)
     root.mainloop()
