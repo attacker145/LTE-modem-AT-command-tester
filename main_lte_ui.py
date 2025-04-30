@@ -948,9 +948,7 @@ class LteInterface(DisplayImagesUserInterfaceInit):
     def manufacture(self):
         if not self.smi_flag:
             response = self.serial_comm.send_command("AT+GMI", "OK")
-            print(response)
             parts = response.split("b'")
-            print(parts)
             vendors = ["Quectel", "Telit", "Sierra", "u-blox"]
             manufacture = next((s.rstrip("'") for s in parts if any(s.startswith(v) for v in vendors)), None)
             print(manufacture)
