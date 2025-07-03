@@ -718,6 +718,10 @@ class LteInterface(DisplayImagesUserInterfaceInit):
         tk.Button(self.tab5, text="SIM state", command=self.serial_comm.cpin, bd=4,
                   width=20).grid(column=column, row=row, padx=5, pady=0, sticky="nw")
 
+        column += 1  # BTN: AT+CGACT?
+        tk.Button(self.tab5, text="Quectel CELL ID", command=self.serial_comm.cell_id, bd=4,
+                  width=20).grid(column=column, row=row, padx=5, pady=0, sticky="nw")
+
         row += 1
         column = 0
         self.enter_command_tab5 = tk.Text(self.tab5, height=2, width=40, bg='#33FFAA', bd=4, highlightcolor='#33FF44', font=("Helvetica", 10))
