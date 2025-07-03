@@ -168,6 +168,9 @@ class SerialCommunication:
     def cpin(self):
         self.com_port.write(b"AT+CPIN?" + rtn.encode())
 
+    def cell_id(self):
+        self.com_port.write(b"AT+QENG=\"servingcell\"" + rtn.encode())
+
     def send_command(self, command, response="OK"):
         timeout = 40
         text = ""
