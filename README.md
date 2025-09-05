@@ -2,7 +2,11 @@
 
 ## Overview
 
-The **LTE AT+ Command Tester** is a Python-based tool designed to send, receive, and process AT+ commands for testing and configuring LTE modems. This project simplifies interaction with LTE modems by providing a script to automate command execution, parse responses, and log results. It is ideal for developers and engineers working on modem integration or network testing.
+The **LTE AT+ Command Tester** is a Python-based tool designed to send, receive, 
+and process AT+ commands for testing and configuring LTE modems. This project simplifies 
+interaction with LTE modems by providing a script to automate command execution, parse 
+responses, and log results. It is ideal for developers and engineers working on modem 
+integration or network testing.
 
 ### Features
 
@@ -26,6 +30,8 @@ The **LTE AT+ Command Tester** is a Python-based tool designed to send, receive,
   - `google`  
   - `pdfplumber`  
   - `subprocess`
+  - `vertexai`
+  - `google`
 
 Compatible LTE modems are Quectel, Telit, and others, connected via USB or serial interface, Windows, with appropriate serial port drivers.
 
