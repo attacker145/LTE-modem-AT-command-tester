@@ -71,11 +71,11 @@ Once the script connects to the serial port, the port settings will be displayed
 
 ![com_port_select_number](https://github.com/user-attachments/assets/9a33c292-08f8-4d87-ae41-7147ef514499)
 
+Selecting "Enable Google Search" will allow Google’s AI to provide explanations for the modem’s response to a sent command.
+
 The software will run the AT+GMR command to identify the connected modem:
 
 ![connected_to_xx_modem](https://github.com/user-attachments/assets/8b9b9c29-6531-411d-ac07-4378a717c56f)
-
-Selecting "Enable Google Search" will allow Google’s AI to provide explanations for the modem’s response to a sent command.
 
 Interact with the modem:
 
