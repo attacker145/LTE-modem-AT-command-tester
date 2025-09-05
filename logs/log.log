@@ -1,8 +1,4 @@
-2025-09-05 10:37:14,866 - DEBUG - Rspnse: b'Quectel'
-2025-09-05 10:37:14,868 - DEBUG - Rspnse: b''
-2025-09-05 10:37:14,869 - DEBUG - Rspnse: b'OK'
-2025-09-05 10:37:29,034 - INFO - BG95M3LAR02A03
-OK
-2025-09-05 10:37:54,315 - INFO - +CSQ: 23,99
-OK
-RSSI: 23 dBm, BER(number of erroneous bits): 99 bit error
+2025-09-05 13:45:18,223 - DEBUG - Rspnse: b'Quectel'
+2025-09-05 13:45:18,225 - DEBUG - Rspnse: b''
+2025-09-05 13:45:18,226 - DEBUG - Rspnse: b'OK'
+2025-09-05 14:00:10,574 - INFO - +QLWURC: "event",0,15,"GENERIC_FAILED"
