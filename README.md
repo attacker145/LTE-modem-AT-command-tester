@@ -54,7 +54,7 @@ pip install pyserial pillow binascii socket google pdfplumber subprocess pillow 
 ```
 
 Verify modem connection:
-Ensure your LTE modem is connected and drivers are installed.
+Please make sure your LTE modem is connected and that the necessary drivers are installed.
 Identify the modem's serial port (e.g., COM3 on Windows or /dev/ttyUSB0 on Linux).
 
 
@@ -65,16 +65,17 @@ python main_lte_ui.py
 
 Select "COM PORT SELECT" for the serial interface.
 
-
 ![com_port_select](https://github.com/user-attachments/assets/c4a966d9-db14-4e90-a7fc-3090e25eec55)
 
 Once the script connects to the serial port, the port settings will be displayed:
 
 ![com_port_select_number](https://github.com/user-attachments/assets/9a33c292-08f8-4d87-ae41-7147ef514499)
 
-The software will execute the AT+GMR command to determine which modem it is connected:
+The software will run the AT+GMR command to identify the connected modem:
 
 ![connected_to_xx_modem](https://github.com/user-attachments/assets/8b9b9c29-6531-411d-ac07-4378a717c56f)
+
+Selecting "Enable Google Search" will allow Google’s AI to provide explanations for the modem’s response to a sent command.
 
 Interact with the modem:
 
