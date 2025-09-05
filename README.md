@@ -41,10 +41,15 @@ interface, Windows, with appropriate serial port drivers.
 ### Clone and Navigate to LTE Modem AT Command Tester
 ```bash
 git clone https://github.com/attacker145/LTE-modem-AT-command-tester.git
+```
+```bash
 cd LTE-modem-AT-command-tester
-
+```
 Set up a virtual environment (recommended, not required):
+```bash
 python -m venv venv
+```
+```bash
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
