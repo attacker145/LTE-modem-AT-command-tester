@@ -1,5 +1,7 @@
 # LTE AT+ Command Tester
 
+<https://www.jinetinnovations.com/>
+
 ## Overview
 
 The **LTE AT+ Command Tester** is a Python-based tool designed to send, receive, 
@@ -71,7 +73,7 @@ Once the script connects to the serial port, the port settings will be displayed
 
 ![com_port_select_number](https://github.com/user-attachments/assets/9a33c292-08f8-4d87-ae41-7147ef514499)
 
-Selecting "Enable Google Search" will allow Google’s AI to provide explanations for the modem’s response to a sent command.
+Selecting "Enable Google Search" will open a web browser and use Google’s AI to explain the modem’s response to a command by automatically searching the response text.
 
 The software will run the AT+GMR command to identify the connected modem:
 
