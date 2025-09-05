@@ -31,9 +31,10 @@ integration or network testing.
   - `pdfplumber`  
   - `subprocess`
   - `vertexai`
-  - `google`
 
-Compatible LTE modems are Quectel, Telit, and others, connected via USB or serial interface, Windows, with appropriate serial port drivers.
+
+Compatible LTE modems are Quectel, Telit, and others, connected via USB or serial 
+interface, Windows, with appropriate serial port drivers.
 
 ## Installation
 
@@ -49,7 +50,7 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 Install dependencies:
 ```bash
-pip install pyserial pillow binascii socket google pdfplumber subprocess pillow webbrowser
+pip install pyserial pillow binascii socket google pdfplumber subprocess pillow webbrowser vertexai
 ```
 
 Verify modem connection:
