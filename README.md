@@ -70,7 +70,11 @@ Select "COM PORT SELECT" for the serial interface.
 
 Once the script connects to the serial port, the port settings will be displayed:
 
-![com_port_select_port_number](https://github.com/user-attachments/assets/adda67f3-ec51-4126-b81a-5db020044e4c)
+![com_port_select_number](https://github.com/user-attachments/assets/9a33c292-08f8-4d87-ae41-7147ef514499)
+
+The software will execute the AT+GMR command to determine which modem it is connected:
+
+![connected_to_xx_modem](https://github.com/user-attachments/assets/8b9b9c29-6531-411d-ac07-4378a717c56f)
 
 Interact with the modem:
 
