@@ -937,7 +937,7 @@ class LteInterface(DisplayImagesUserInterfaceInit):
         v_scrollbar.config(command=self.displ_modem_response_tab6.yview)
 
         # ******* Read lines from the BG95.txt file ******************************************************
-        self.file_name.configure(text=str(self.input_file))
+        self.file_name.configure(text=str(self.input_file))  # changes properties of an already-created widget
         with open(self.input_file, 'r') as f_in:
             self.lines = [line.strip("\n") for line in f_in.readlines()]
         # ************ Initialize Modem Responses ********************************************************
