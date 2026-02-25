@@ -24,6 +24,7 @@ from tool_tip import Tooltip
 from update_json import update_json
 from utils import parse_csq_response, parse_servinfo_response, parse_at_atrfsts, Timer
 from serial_communication.serial_comm import SerialCommunication
+from tab1_serial_setup import Tab1SerialSetup
 
 rtn = "\r\n"
 ports = []
@@ -92,8 +93,12 @@ class LteInterface(DisplayImagesUserInterfaceInit):
         tab_count = 6  # The number of tabs
         tabs = [ttk.Frame(self.tab_control) for _ in range(tab_count)]
         self.tab1, self.tab2, self.tab3, self.tab4, self.tab5, self.tab6 = tabs
-        tab_info = [('COM PORT SELECT', self.tab1), ('SINGLE COMMAND', self.tab2), ('DROP DOWN COMMAND', self.tab3),
-                    ('RUN COMMAND FILE', self.tab4), ("DIAGNOSTICS", self.tab5), ("PPP Frame", self.tab6)]
+        tab_info = [('COM PORT SELECT', self.tab1),
+                    ('SINGLE COMMAND', self.tab2),
+                    ('DROP DOWN COMMAND', self.tab3),
+                    ('RUN COMMAND FILE', self.tab4),
+                    ("DIAGNOSTICS", self.tab5),
+                    ("PPP Frame", self.tab6)]
         for text, tab in tab_info:
             self.tab_control.add(tab, text=text)
         self.tab_control.pack(expand=1, fill="both")
