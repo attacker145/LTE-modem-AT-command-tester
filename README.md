@@ -100,7 +100,7 @@ Syntax: ***command;expected modem response***
 ```bash
 AT+QHTTPCFG="contextid",1;OK
 AT+QIACT?;OK
-AT+QICSGP=1,1,"soracom.io","","',1;OK
+AT+QICSGP=1,1,"apn.io","","',1;OK
 AT+QIACT=1;OK
 AT+QIACT?;OK
 AT+QHTTPURL=43,80;CONNECT
