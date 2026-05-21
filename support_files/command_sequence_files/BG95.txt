@@ -17,10 +17,10 @@ AT+QIDNSCFG=1,"8.8.8.8","8.8.4.4";OK
 AT+QPING=1,"8.8.8.8",5,5;OK
 AT+QIACT?;OK
 ATI;OK
-AT+QIOPEN=1,0,"TCP","www.xxxx.com",80,0,0;OK
+AT+QIOPEN=1,0,"TCP","www.ux-xio.com",80,0,0;OK
 AT+QISEND=0;CONNECT
 POST /data/1234 HTTP/1.1
-Host: www.xxxx.com
+Host: www.ux-xio.com
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 39
 

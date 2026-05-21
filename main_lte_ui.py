@@ -74,8 +74,8 @@ class LteInterface(DisplayImagesUserInterfaceInit):
         # Initialize SerialCommunication with required parameters
         global ports
         self.top_level = top_level
-        self.tab_control = ttk.Notebook(self.top_level)
-        self.stop, self.disable, self.is_running = [False] * 3
+        self.tab_control = ttk.Notebook(self.top_level)  # Create a tab control widget
+        self.stop, self.disable, self.is_running = [False] * 3  # Initialize control flags
         self.input_file = input_file
         self.at_command = self.at_command_tab5 = self.com_port_str = ""
         self.com_ports = []
@@ -1417,6 +1417,8 @@ class LteInterface(DisplayImagesUserInterfaceInit):
     def select_and_assign_com_port_from_drop_down_tab1(self):
         self.baud, self.com_port = self.serial_comm.select_and_assign_com_port_from_drop_down()
         return
+    
+    # ========== COM PORTS AND SERIAL CONNECTIONS ==========================================================
 
     def get_com_ports(self):
         """
@@ -1449,7 +1451,7 @@ class LteInterface(DisplayImagesUserInterfaceInit):
     def get_serial_port_thread(self):
         threading.Thread(target=self.get_serial_continuously).start()
 
-
+# ========================= THREADS AND MAIN =============================================================
 def start_reading_thread_1(com_port, lte_class):
     print("Reading COM PORT {}".format(com_port))
     threading.Thread(target=lte_class.read_modem_response_continuously).start()
