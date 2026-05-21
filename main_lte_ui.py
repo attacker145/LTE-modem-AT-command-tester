@@ -89,7 +89,7 @@ class LteInterface(DisplayImagesUserInterfaceInit):
         self.timer = Timer()
 
         self.smi_flag = False  # AT+GMI single shot flag
-        # ---------------------- Create Tabs -----------------------------------------------------------------
+        # ================== Create Tabs ====================================================
         tab_count = 6  # The number of tabs
         tabs = [ttk.Frame(self.tab_control) for _ in range(tab_count)]
         self.tab1, self.tab2, self.tab3, self.tab4, self.tab5, self.tab6 = tabs
@@ -103,7 +103,7 @@ class LteInterface(DisplayImagesUserInterfaceInit):
             self.tab_control.add(tab, text=text)
         self.tab_control.pack(expand=1, fill="both")
 
-        # ********************** Tab1 SERIAL COMM *******************************************************************
+        # ==================== Tab1 SERIAL COMM SETUP ============================================================
         # COM PORT Section
         row = 0  # ---- Blank line1
         tk.Label(self.tab1, text="").grid(column=0, row=row, padx=5, pady=0, sticky="sw")
@@ -238,7 +238,8 @@ class LteInterface(DisplayImagesUserInterfaceInit):
         column = 0  # EXIT Button
         tk.Button(self.tab1, text="Exit", command=self.exit_app, bd=4, width=20).grid(column=column, row=row, padx=5,
                                                                                       pady=5, sticky="nw")
-        # ********************** Tab2 SINGLE COMMAND ***********************************************************
+        
+        # ==================== Tab2 SINGLE COMMAND ==============================================================
         row = 0  # ---- Blank line -----------------------------------------------------------------------------
         tk.Label(self.tab2, text="").grid(column=0, row=row, padx=5, pady=0, sticky="sw")
 
@@ -311,7 +312,7 @@ class LteInterface(DisplayImagesUserInterfaceInit):
                                   relief='sunken')
         self.note_tab2.grid(column=column, row=row, columnspan=2, rowspan=1, padx=5, pady=10, sticky="nw")
 
-        # ********************** Tab3 DROP DOWN COMMAND *****************************************************
+        # ====================== Tab3 DROP DOWN COMMAND LISTS =======================================================
         row = 0  # ---- Blank lines                                                                         R0
         tk.Label(self.tab3, text="").grid(column=0, row=row, padx=5, pady=0, sticky="ew")
         # ------------------------------LIST A---------------------------------------------------------
@@ -324,15 +325,19 @@ class LteInterface(DisplayImagesUserInterfaceInit):
         column = 0
         tk.Button(self.tab3, text="Run", command=self.send_at_command_drop_down,
                   bd=4, width=20).grid(column=column, row=row, padx=5, pady=0, sticky="nw")  # image=self.send_img
-        column += 1  # --- Drop down field List of Commands
+        # -------- Drop down field List of Commands ---------------------------------------------------
+        column += 1 
         self.selected_option_list_a = tk.StringVar()
-        self.selected_option_list_a.set("AT+CSQ")  # Default selected option
+        self.selected_option_list_a.set("AT+CSQ")  # Display AT+CSQ as default selected option in the drop down list when the app starts
 
         def on_combobox_change_lista(event):
-            selected_m1 = self.selected_option_list_a.get()
-            tooltip_m1.text = descriptions_list_a.get(selected_m1, "No description available")
+            selected_m1 = self.selected_option_list_a.get()  # Get the selected command from the dropdown. 
+            # All commands are listed in the JSON file and stored in the descriptions_list_a dictionary. 
+            # When the user selects a command, we retrieve its description from the dictionary and update the tooltip text accordingly.
+            tooltip_m1.text = descriptions_list_a.get(selected_m1, "No description available")  # Update tooltip text based on the selected command
 
-        descriptions_list_a = load_descriptions("resources/list_a_commands.json")  # Load from JSON file
+        descriptions_list_a = load_descriptions("resources/list_a_commands.json")  # List A commands and descriptions are stored in 
+        # this JSON file and loaded into the descriptions_list_a dictionary.
         self.selected_option_list_a = tk.StringVar()
         self.selected_option_list_a.set("AT+CSQ")  # Default selected option CAT1
         self.dropdown_cat_list_a = ttk.Combobox(self.tab3, textvariable=self.selected_option_list_a,
