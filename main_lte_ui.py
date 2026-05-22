@@ -332,9 +332,12 @@ class LteInterface(DisplayImagesUserInterfaceInit):
 
         def on_combobox_change_lista(event):
             """
-             This function is called when the user selects a different command from the drop down list of List A commands.
-             It retrieves the selected command and updates the tooltip text to show the description of the selected command.
-             The descriptions for each command are stored in the descriptions_list_a dictionary, which is loaded from a JSON file.
+                The function on_combobox_change_lista(event) is an event handler (callback) designed to run whenever the user 
+                selects a different item in a ttk.Combobox (dropdown). The event is <<ComboboxSelected>>, 
+                which is triggered when the user makes a selection from the dropdown list.
+                This function is called when the user selects a different command from the drop down list of List A commands.
+                It retrieves the selected command and updates the tooltip text to show the description of the selected command.
+                The descriptions for each command are stored in the descriptions_list_a dictionary, which is loaded from a JSON file.
              """
             selected_m1 = self.selected_option_list_a.get()  # Get the selected command from the dropdown. 
             # All commands are listed in the JSON file and stored in the descriptions_list_a dictionary. 
@@ -349,7 +352,8 @@ class LteInterface(DisplayImagesUserInterfaceInit):
                                                 values=list(descriptions_list_a.keys()),
                                                 width=10, height=15)
         self.dropdown_cat_list_a.grid(column=column, row=row, columnspan=2, rowspan=1, padx=7, pady=0, sticky="nsew")
-        self.dropdown_cat_list_a.bind("<<ComboboxSelected>>", on_combobox_change_lista)  # Bind the selection event to the on_combobox_change_lista function
+        # Bind the selection event to the on_combobox_change_lista function
+        self.dropdown_cat_list_a.bind("<<ComboboxSelected>>", on_combobox_change_lista)  # Generates event for on_combobox_change_lista(event)
 
         tooltip_m1 = Tooltip(self.dropdown_cat_list_a, text=descriptions_list_a["AT+CSQ"])  # Initialize the tooltip with the description of the default selected command (AT+CSQ)
         self.dropdown_cat_list_a.bind("<Enter>", tooltip_m1.show_tooltip)  # Show tooltip when mouse enters the dropdown widget
