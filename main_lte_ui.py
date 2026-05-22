@@ -371,7 +371,15 @@ class LteInterface(DisplayImagesUserInterfaceInit):
                   bd=4, width=20).grid(column=column, row=row, padx=5, pady=0, sticky="nw")  # image=self.send_img
         column += 1  # --- Drop down field List of Commands
 
-        def on_combobox_change(event):
+        def on_combobox_change_listb(event):
+            """
+                The function on_combobox_change_listb(event) is an event handler (callback) designed to run whenever the user 
+                selects a different item in a ttk.Combobox (dropdown). The event is <<ComboboxSelected>>, 
+                which is triggered when the user makes a selection from the dropdown list.
+                This function is called when the user selects a different command from the drop down list of List B commands.
+                It retrieves the selected command and updates the tooltip text to show the description of the selected command.
+                The descriptions for each command are stored in the descriptions_list_b dictionary, which is loaded from a JSON file.
+             """
             selected = self.selected_option_cat1.get()
             tooltip.text = descriptions.get(selected, "No description available")
 
@@ -382,7 +390,7 @@ class LteInterface(DisplayImagesUserInterfaceInit):
                                                 values=list(descriptions.keys()),
                                                 width=10, height=15)
         self.dropdown_cat_list_a.grid(column=column, row=row, columnspan=2, rowspan=1, padx=7, pady=0, sticky="nsew")
-        self.dropdown_cat_list_a.bind("<<ComboboxSelected>>", on_combobox_change)
+        self.dropdown_cat_list_a.bind("<<ComboboxSelected>>", on_combobox_change_listb)  # Generates event for on_combobox_change_listb(event)
 
         tooltip = Tooltip(self.dropdown_cat_list_a, text=descriptions["AT+CSQ"])
         self.dropdown_cat_list_a.bind("<Enter>", tooltip.show_tooltip)
@@ -401,7 +409,15 @@ class LteInterface(DisplayImagesUserInterfaceInit):
         self.selected_option_list_c = tk.StringVar()
         self.selected_option_list_c.set("AT+CSQ")  # Default selected option
 
-        def on_combobox_change_lista(event):
+        def on_combobox_change_listc(event):
+            """
+                The function on_combobox_change_listc(event) is an event handler (callback) designed to run whenever the user 
+                selects a different item in a ttk.Combobox (dropdown). The event is <<ComboboxSelected>>, 
+                which is triggered when the user makes a selection from the dropdown list.
+                This function is called when the user selects a different command from the drop down list of List C commands.
+                It retrieves the selected command and updates the tooltip text to show the description of the selected command.
+                The descriptions for each command are stored in the descriptions_list_c dictionary, which is loaded from a JSON file.
+             """
             selected_c = self.selected_option_list_c.get()
             tooltip_c.text = descriptions_list_c.get(selected_c, "No description available")
 
@@ -412,13 +428,14 @@ class LteInterface(DisplayImagesUserInterfaceInit):
                                                 values=list(descriptions_list_c.keys()),
                                                 width=10, height=15)
         self.dropdown_cat_list_c.grid(column=column, row=row, columnspan=2, rowspan=1, padx=7, pady=0, sticky="nsew")
-        self.dropdown_cat_list_c.bind("<<ComboboxSelected>>", on_combobox_change_lista)
+        self.dropdown_cat_list_c.bind("<<ComboboxSelected>>", on_combobox_change_listc)
 
         tooltip_c = Tooltip(self.dropdown_cat_list_c, text=descriptions_list_a["AT+CSQ"])
         self.dropdown_cat_list_c.bind("<Enter>", tooltip_c.show_tooltip)
         self.dropdown_cat_list_c.bind("<Leave>", tooltip_c.hide_tooltip)
-        # ---------------------------------------------------------------------------------------------
-        row = 1  # ---- Display Modem response field
+
+        # =================== Display Modem response field ==================================================
+        row = 1 
         column += 2  # ---- Display Modem response Text Entry field
 
         tk.Label(self.tab3, text="Modem Response",

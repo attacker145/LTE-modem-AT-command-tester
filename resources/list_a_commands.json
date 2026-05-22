@@ -4,8 +4,8 @@
   "AT+CFUN=1": "",
   "AT+CFUN=1,1": "This command resets the modem and reloads the configuration",
   "AT+CGATT=0": "This command detaches the modem from the current network",
-  "AT+CGDCONT=1,\"IP\",\"data.apn.name\"": "configure PDP (Packet Data Protocol) contexts",
-  "AT+CGDCONT=1,\"IP\",\"soracom.io\"": "configure PDP (Packet Data Protocol) contexts",
+  "AT+CGDCONT=1,\"IP\",\"data.apn.name\"": "configure PDP (Packet Data Protocol) contexts: : IP Address, APN (Access Point Name), QoS (Quality of Service), Authentication",
+  "AT+CGDCONT=1,\"IP\",\"soracom.io\"": "configure PDP (Packet Data Protocol) contexts: : IP Address, APN (Access Point Name), QoS (Quality of Service), Authentication",
   "AT+COPS=0": "Automatically Select Operator",
   "AT+COPS=2": "This command deregisters the modem from the current network",
   "AT+COPS=?": "List Available Operators",
@@ -37,5 +37,7 @@
   "AT&W": "Save the current configuration settings to a non-volatile memory profile",
   "ATO": "Use ATO to Switch from Command Mode to Data Mode > CONNECT",
   "AT+CGACT=1,1": "Activate the PDP context",
-  "AT+QGMR": "Quectel Modem Firmware version"
+  "AT+QGMR": "Quectel Modem Firmware version",
+  "AT+QHTTPCFG=\"contextid\",1": "Configure the PDP context ID as 1: IP Address, APN (Access Point Name), QoS (Quality of Service), Authentication",
+  "AT+QICSGP=1,1,\"soracom.io\",\"\",\"\",1": "Configure the parameters for a specific PDP context"
 }
