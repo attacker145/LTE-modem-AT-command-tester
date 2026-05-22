@@ -325,12 +325,17 @@ class LteInterface(DisplayImagesUserInterfaceInit):
         column = 0
         tk.Button(self.tab3, text="Run", command=self.send_at_command_drop_down,
                   bd=4, width=20).grid(column=column, row=row, padx=5, pady=0, sticky="nw")  # image=self.send_img
-        # -------- Drop down field List of Commands ---------------------------------------------------
+        # -------- Drop down field List of Commands - List A--------------------------------------------------
         column += 1 
         self.selected_option_list_a = tk.StringVar()
         self.selected_option_list_a.set("AT+CSQ")  # Display AT+CSQ as default selected option in the drop down list when the app starts
 
         def on_combobox_change_lista(event):
+            """
+             This function is called when the user selects a different command from the drop down list of List A commands.
+             It retrieves the selected command and updates the tooltip text to show the description of the selected command.
+             The descriptions for each command are stored in the descriptions_list_a dictionary, which is loaded from a JSON file.
+             """
             selected_m1 = self.selected_option_list_a.get()  # Get the selected command from the dropdown. 
             # All commands are listed in the JSON file and stored in the descriptions_list_a dictionary. 
             # When the user selects a command, we retrieve its description from the dictionary and update the tooltip text accordingly.
@@ -344,12 +349,13 @@ class LteInterface(DisplayImagesUserInterfaceInit):
                                                 values=list(descriptions_list_a.keys()),
                                                 width=10, height=15)
         self.dropdown_cat_list_a.grid(column=column, row=row, columnspan=2, rowspan=1, padx=7, pady=0, sticky="nsew")
-        self.dropdown_cat_list_a.bind("<<ComboboxSelected>>", on_combobox_change_lista)
+        self.dropdown_cat_list_a.bind("<<ComboboxSelected>>", on_combobox_change_lista)  # Bind the selection event to the on_combobox_change_lista function
 
-        tooltip_m1 = Tooltip(self.dropdown_cat_list_a, text=descriptions_list_a["AT+CSQ"])
-        self.dropdown_cat_list_a.bind("<Enter>", tooltip_m1.show_tooltip)
-        self.dropdown_cat_list_a.bind("<Leave>", tooltip_m1.hide_tooltip)
-        # --------------------------------LIST B----------------------------------------------------------
+        tooltip_m1 = Tooltip(self.dropdown_cat_list_a, text=descriptions_list_a["AT+CSQ"])  # Initialize the tooltip with the description of the default selected command (AT+CSQ)
+        self.dropdown_cat_list_a.bind("<Enter>", tooltip_m1.show_tooltip)  # Show tooltip when mouse enters the dropdown widget
+        self.dropdown_cat_list_a.bind("<Leave>", tooltip_m1.hide_tooltip)  # Hide tooltip when mouse leaves the dropdown widget
+
+        # --------------------------------Drop down field List of Commands - List B------------------------------------------
         row += 1  # --- Labels for Send LTE Command button and Drop down List of Commands
         labels = ["Run List B Command", "List B of AT+ Commands"]
         for i, label in enumerate(labels):
